@@ -1,0 +1,17 @@
+array tie = [1,0,1,0,1,0,1,0];
+array IDs[] = [tie, array2, array3];
+int input;
+int counter = 0;
+s = Sound();
+s.read('sound1.wav');
+//when selected, input = input from button the array of the clip selected
+
+
+for(int i = 0; i<8, i++){
+      if (IDs[input][counter] == 1){
+      s.play();}
+      else{
+      delay(250);}
+      counter++;
+      }
+      
