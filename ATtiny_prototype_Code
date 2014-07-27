@@ -17,7 +17,7 @@ pinMode(on, OUTPUT);
 // basic defining of pins, nothing fancy to see here
 //This little bit is just to make sure that the radio is actually trying to wake up all the ATtinys and not sending 
 //signals to another device.
-delay(1000);
+delay(950);
  digitalWrite(on,HIGH);                        }
  
   void loop(){
