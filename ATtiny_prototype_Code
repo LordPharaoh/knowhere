@@ -1,0 +1,29 @@
+// Code goes on ATtiny45 using Arduino ISP
+// Good comments save the day. True story.
+int radioIn = 2;
+int speakerOut = 1;
+int on = 0;
+// Defining the 3 pins we will use. Since there are only 2 
+// digital pins, radioIn is an analog port and we just round it 
+// to high or low. speakerOut is the digital out to the speaker.
+// On automatically turns on when the "start transmission"
+// signal is recieved and automatically turns off the ATtiny
+// if the ID is incorrect.
+
+void setup(){
+pinMode(radioIn,INPUT);
+pinMode(speakerOut,OUTPUT);
+pinMode(on, OUTPUT);
+// basic defining of pins, nothing fancy to see here
+                        }
+  void loop(){
+   ///////////////////////// Fix to Make Easier Edit for different Verification IDs ///////////////////////////////////   
+    if(radioIn < 100 ){digitalWrite(on, LOW) }
+    delay (1000);
+    if (radioIn > 100){}
+      else {digitalWrite(on, LOW);}
+  // repeat the process
+  digitalWrite(speakerOut, HIGH);}
+  // and if it is all correct till the end (the actual one has 
+  // 8 of these if statements), it beeps. Fulfulling its function.
+  
