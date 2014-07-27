@@ -46,5 +46,5 @@ delay(1000);
    digitalWrite(speakerOut,LOW);
    delay(250);
  }
- 
+ }
  
