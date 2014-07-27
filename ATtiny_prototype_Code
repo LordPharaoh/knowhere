@@ -21,6 +21,7 @@ delay(1000);
  digitalWrite(on,HIGH);                        }
  
   void loop(){
+  //This for statement checks each signal recieved and assigns it to a variable in the sentID array
    for( int x = 0;x<8;x++){
        delay(250);
       sentID[counter] = radioIn;
@@ -31,13 +32,19 @@ delay(1000);
              else{ sentID[counter] = 0;
              counter++; }
    }
+   //This for statement compares the storedID and the sentID.
    counter = 0;
    for(int y=0;y<8;y++){
      if(storedID[counter] != sentID[counter]){
        digitalWrite(on,LOW);}
        counter++;
    }
+   //If they are the same,
+   while(radioIn>350){
    digitalWrite(speakerOut,HIGH);
-  // and if it is all correct till the end (the actual one has 
-  // 8 of these if statements), it beeps. Fulfulling its function.
-  
+   delay(250);
+   digitalWrite(speakerOut,LOW);
+   delay(250);
+ }
+ 
+ 
