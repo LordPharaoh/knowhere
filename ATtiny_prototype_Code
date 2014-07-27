@@ -1,33 +1,43 @@
 // Good comments save the day. True story.
-
-int radioIn = 2;
-int counter = 0;
+// This is the out that beeps the speaker, and flashes the light.
 int speakerOut = 1;
+// This digital out opens a transistor that keeps the ATtiny on. It shuts down the ATtiny automatically to save power.
 int on = 0;
+//since we don't have any digital pins left on the ATtiny, the radio inputs to an analog pin that we round.
+int radioIn = 2;
+//this number is a placeholder that makes sure the two arrays below are on the same page.
+int counter = 0;
+// Here's a neat little array to drop the ID of each device. The rest of the code (theoretically) takes care of itself
 int storedID[8] = {1,0,1,1,0,0,1,0};
 int sentID[8] = {};
-void verifyID(int state){
-}
 void setup(){
 pinMode(radioIn,INPUT);
 pinMode(speakerOut,OUTPUT);
 pinMode(on, OUTPUT);
 // basic defining of pins, nothing fancy to see here
+//This little bit is just to make sure that the radio is actually trying to wake up all the ATtinys and not sending 
+//signals to another device.
 delay(1000);
  digitalWrite(on,HIGH);                        }
+ 
   void loop(){
-   for( counter;counter<8;counter++){
+   for( int x = 0;x<8;x++){
        delay(250);
       sentID[counter] = radioIn;
        if(sentID[counter]>300){
-            sentID[counter] = 1;}
+            sentID[counter] = 1;
+            }
          
-             else{ sentID[counter] = 0;}
+             else{ sentID[counter] = 0;
+             counter++; }
    }
-   for(counter=0;counter<8;counter++){
+   counter = 0;
+   for(int y=0;y<8;y++){
      if(storedID[counter] != sentID[counter]){
        digitalWrite(on,LOW);}
+       counter++;
    }
+   digitalWrite(speakerOut,HIGH);
   // and if it is all correct till the end (the actual one has 
   // 8 of these if statements), it beeps. Fulfulling its function.
   
