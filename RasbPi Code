@@ -6,6 +6,10 @@ KnoWhere.
 from tkinter import *
 from tkinter import ttk
 import sqlite3
+
+
+#keep your variables up here. they should work
+
 int selectedByte=[1,0,1,0,0,0,1,1]
 #import RPi.GPIO as GPIO
 class KnoWhere:
