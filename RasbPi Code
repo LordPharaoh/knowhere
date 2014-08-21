@@ -7,7 +7,8 @@ KnoWhere.
 from tkinter import *
 from tkinter import ttk
 import sqlite3
-
+int selectedByte=[1,0,1,0,0,0,1,1]
+#import RPi.GPIO as GPIO
 class KnoWhere:
     def __init__(self, master):
 
@@ -42,20 +43,25 @@ class KnoWhere:
         updtbtn = ttk.Button(text="Modify Selected", command = self.open_modify_window)
         updtbtn.grid(row=5, padx=150, pady=10,  column=0, sticky=E)
         #self.view_records()
-        beepbtn = ttk.Button(text="Find Device", command = find)
-        beepbtn.grid(row=5, column=1, pady=10, sticky=W)
         
-        stopbeepbtn = ttk.Button(text="Stop Finding Device", command = stop)
-        stopbeepbtn.grid(row=5, column=1, padx=10, pady=10, sticky=E)      
+        beepbtn = ttk.Button(text="Find Device", command = self.find)
+        beepbtn.grid(row=5, column=1, sticky=W)
+        
+        stopbeepbtn = ttk.Button(text="Stop Finding Device", command = self.stop)
+        stopbeepbtn.grid(row=5, column=1, sticky=E)      
     def create_record(self):
         name = self.namefield.get()
         num = self.numfield.get()
         if name == "":
-            self.msg["text"] = "Please Enter name"
+            self.msg["text"] = "Please Enter name."
             return
         if num == "0":
-            self.msg["text"] = "Please Enter ID Number"
+            self.msg["text"] = "Please Enter ID Number."
             return
+        if len(str(num))!=8:
+            self.msg["text"] = "ID Number needs to be 8 digits long."
+            return
+
         conn = sqlite3.connect('knowhere.db')
         c = conn.cursor()
         c.execute("""INSERT INTO contacts VALUES(NULL,?, ?)""", (name, num))
@@ -132,14 +138,21 @@ class KnoWhere:
             self.tl.destroy()
             self.msg["text"] = "ID Number of %s modified" %name
             self.view_records()
-    def stop():
+    def stop(self):
             GPIO.cleanup()
             #the stop program. this is what they press once they find the device to make it stop making noise.
             #I am pretty sure that the code is GPIO.cleanup()
             #commands linked in button might not work.
 
-    def find():
-        #this is where you create your sine waves i already have linked this into the button but it might not
+    def find(self):
+        
+ #           print ("hello")
+ #           conn = sqlite3.connect('knowhere.db')
+ #           c = conn.cursor()
+ #           id = c.execute("""SELECT * FROM contacts""")
+ #           print (id)
+ 
+            #this is where you create your sine waves i already have linked this into the button but it might not
         #work. Ask me if you need help understanding anything. 
         #commands linked in button might not work.
 
