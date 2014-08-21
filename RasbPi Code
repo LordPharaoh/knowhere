@@ -3,7 +3,6 @@ KnoWhere.
 
      Know Where everything is.
 """ 
-#Ask me if you need help understanding anything. 
 from tkinter import *
 from tkinter import ttk
 import sqlite3
@@ -140,9 +139,7 @@ class KnoWhere:
             self.view_records()
     def stop(self):
             GPIO.cleanup()
-            #the stop program. this is what they press once they find the device to make it stop making noise.
-            #I am pretty sure that the code is GPIO.cleanup()
-            #commands linked in button might not work.
+
 
     def find(self):
         
@@ -151,10 +148,6 @@ class KnoWhere:
  #           c = conn.cursor()
  #           id = c.execute("""SELECT * FROM contacts""")
  #           print (id)
- 
-            #this is where you create your sine waves i already have linked this into the button but it might not
-        #work. Ask me if you need help understanding anything. 
-        #commands linked in button might not work.
 
 root = Tk()
 root.title('KnoWhere')
