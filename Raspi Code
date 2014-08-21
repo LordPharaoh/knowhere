@@ -6,9 +6,22 @@ KnoWhere.
 from tkinter import *
 from tkinter import ttk
 import sqlite3
+import time
+#importing time module
+
+############## EDIT HERE #######################################################################################
 
 
-#keep your variables up here. they should work
+enterPID = "Enter the PID here"
+enterWav = "Enter the name of the wav file here with a .wav included"
+enterFrequency = "This should be a number in the FM band (88-108 MHz) that's unused in your area"
+
+
+###### DO NOT EDIT PAST HERE UNLESS YOU FEEL LIKE TINKERING WITH CODE, IN WHICH CASE, GO RIGHT AHEAD ###########
+
+#system.os("sudo ./pifm " + enterWav + " " + enterFrequency)
+#system.os("kill -9  " + enterPID)
+
 
 selectedByte=[1,0,1,0,0,0,1,1]
 #import RPi.GPIO as GPIO
@@ -146,6 +159,8 @@ class KnoWhere:
 
 
     def find(self):
+    
+        
         
  #           print ("hello")
  #           conn = sqlite3.connect('knowhere.db')
