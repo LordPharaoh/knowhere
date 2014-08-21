@@ -10,7 +10,7 @@ import sqlite3
 
 #keep your variables up here. they should work
 
-int selectedByte=[1,0,1,0,0,0,1,1]
+selectedByte=[1,0,1,0,0,0,1,1]
 #import RPi.GPIO as GPIO
 class KnoWhere:
     def __init__(self, master):
